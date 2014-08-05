@@ -1,0 +1,89 @@
+<div class="container-fluid">
+            <div class="row-fluid">
+                  <div class="span4">
+                  <%= simple_form_for @exercise, :html => {:class => 'form-inline' , :multipart => true } do |f| %>
+                  <% @tut_id = params[:tutorial_id]%>
+
+  
+                  </div>
+                  <div class="span12 ">
+                          <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab3" data-toggle="tab">Explanation</a></li>
+                      
+                            <li><a href="#tab1" data-toggle="tab">Solution Code</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Default Code</a></li>
+                             </ul>
+                          <div class="tab-content">
+                              <div class="tab-pane" id="tab1">
+                                   <%= f.input :solution_code ,:input_html =>{:id =>'sol_code'}%>
+                                     <script type="text/javascript">
+                                            var editor = CodeMirror.fromTextArea(document.getElementById("sol_code"), {
+                                              lineNumbers: true,
+                                              mode: "application/x-ejs",
+                                              indentUnit: 4,
+                                              indentWithTabs: true,
+                                              enterMode: "keep",
+                                              tabMode: "shift",
+                                            });
+                                     </script> 
+                                
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <%= f.input :default_code , :input_html => {:id => 'def_code'}%>
+                                    <script type="text/javascript">
+                                        var editor = CodeMirror.fromTextArea(document.getElementById("def_code"), {
+                                              lineNumbers: true,
+                                              mode: "application/x-ejs",
+                                              indentUnit: 4,
+                                              indentWithTabs: true,
+                                              enterMode: "keep",
+                                              tabMode: "shift",
+                                            });
+                                    </script>
+                                </div>
+                                <div class="tab-pane active" id="tab3">
+                                    
+
+                       <div class="row-fluid"> 
+                            <div class="span6">
+                                <%= f.input :title, :input_html => {:placeholder => "Enter the title of your exercise" ,:style => 'width:500px;'} %>
+                               
+                            </div>
+                            <div class="span6">
+                                   <%= f.input :information,:input_html => {:placeholder => "Enter the explanation", :style => "height:150px;width:500px;"
+                                     } %>
+                            </div> 
+                       </div>     
+                         
+                       <div class="row-fluid"> 
+                            <div class="span6">
+                                     <%= f.input :instruction ,:input_html => {:placeholder => "Enter the coding instruction for the student",:style => "height:150px; width:500px;"}%>             
+                            </div>
+                            <div class="span6">
+                                     <%= f.input :hint , :input_html => {:placeholder => "Enter the coding hints for the student",:style => "height:150px;width:500px;"}%>
+                          
+                            </div> 
+                       </div>             
+                 
+                   <hr>
+                  <label>Video/Image</label>
+                  <%= f.file_field :video %>
+              
+                                </div>
+                          </div>
+                      </div>
+                                   
+
+                                    
+                  </div>
+            </div>
+  
+</div>
+       <%= f.input :tutorial_id ,as: :hidden,:input_html => {:value => @tut_id} %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                exercises_path, :class => 'btn' %>
+  </div>
+<% end %>

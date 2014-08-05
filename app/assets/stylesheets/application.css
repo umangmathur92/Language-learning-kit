@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+
+ .main section  {
+      overflow: hidden;
+    
+    }
+    
+    .main section > img {
+      position: absolute;
+      max-width: 100%;
+      z-index: 1;
+    }
+    
+    .main section.page1 {
+      background:white;
+   
+    }
+
+ .main section.page2 {
+      background: #ffeeee;
+  }
+
+ .main section.page3 {
+      background: #E8E8E8 ;
+  }
+ .main section.page4 {
+      background: #F0F0F0 ;
+  }
+ .main section.page5 {
+      background: #D8D8D8 ;
+  }
+
+
+
+
+body {
+ 
+   padding-top: 58px;
+
+}
+
+.card
+{
+    height: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 21px;
+    font-weight: 100;
+    line-height: 2.1428571435;
+    color: white;
+    background-color: black;
+    text-align: center;
+    border-radius: 0px;
+  
+
+}
+.jumbotron1 {
+  height: 300px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 100;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eee;
+  text-align: center;
+  border-radius: 20px;
+
+}
+.jumbotron1:hover {
+  
+}
+
+.jumbotron {
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 100;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eee;
+  text-align: left;
+  border-radius: 10px;
+
+}
+.jumbotron:hover {
+  
+
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotron p {
+  line-height: 1.4;
+}
+
+.container .jumbotron {
+  border-radius: 10px;
+}
+
+.jumbotron .container {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .jumbotron {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 63px;
+  }
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+.thumbnail > img,
+.thumbnail a > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #428bca;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: #333333;
+}
+
+.CodeMirror 
+{
+
+
+  border-top: 1px solid black;  
+  border-bottom: 1px  solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+} 

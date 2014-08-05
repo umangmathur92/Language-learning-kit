@@ -1,0 +1,9 @@
+<h1>Profile#viewtest</h1>
+<p>Find me in app/views/profile/viewtest.html.erb</p>
+
+<h2>Following are tests given by <%= current_user.email %></h2>
+<ul>
+<% @tests.each do |test| %>
+<li><% test.id %></li>
+<% end %>
+

@@ -1,0 +1,11 @@
+
+<div class="container">
+			
+			<h5>Select number of questions in test </h5>
+			<% @qno = QNo.new %>
+			<%= simple_form_for @qno, :url => starttest_total_question_path, :method => 'post' do |f|%>
+			<%= f.input :no ,collection: [15,20,25,30], :input_html => {class: 'span4'}, label:false , :include_blank => false %>
+			<%= f.submit :value => "Submit",:class => "btn btn-default" %>
+			<% end %>	
+
+</div>

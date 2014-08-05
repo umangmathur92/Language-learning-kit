@@ -1,0 +1,69 @@
+<br><br>
+
+
+      <div class="container-fluid">
+
+
+            <% @tutorials.each do |tutorial| %> 
+                   
+           <div class="row-fluid">
+              <div class="span2">
+                
+              </div>               
+                    <div class="span8">
+
+                          <% @exercies = @exercise.where(:tutorial_id => tutorial.id) %>
+         
+                           <div class="panel panel-default">
+                            <div class="panel-heading">
+                            <h3>  
+                              <%=tutorial.name %></h3>
+                               <% tutorial.details %>
+                            </div>
+                            <div class="panel-body">
+                              
+                                     <% @exercies.each do |exer| %>
+                                       <span><b><%= exer.title%></b>
+
+                                     <b><%= link_to "start" ,learn_exercise_path(:id => exer.id), :class => 'btn btn-default pull-right'%></b>
+                               </span> 
+                                    <%exer.information %>
+
+                                    <hr/>
+                                <% end %>
+                               
+                            </div>  
+                               
+                                
+                              
+
+                        </div>        
+                    
+                               
+
+                    </div>
+
+
+             
+            </div>
+             <% @name = tutorial.language.name %>
+       
+
+              <td><% link_to @name1, controller: 'tutorials',action: 'showbylanguage', tutorial_id: tutorial.language_id  %></td>
+            <td><%l tutorial.created_at %></td>
+            </tr>
+          <% end %>
+
+             
+                 
+          </div>
+     <div  style="position:fixed; top:100px; left:50px;">
+     <div class="card">
+      <%=@name%></h1>
+ 
+     </div>
+      
+       </br>
+     </div>     
+
+          

@@ -1,0 +1,20 @@
+<br><br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tests Given by <%= current_user.first_name %></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |language| %>
+      <tr>
+        <td><%= language.id %></td>
+        
+    
+      </tr>
+    <% end %>
+  </tbody>
+</table>

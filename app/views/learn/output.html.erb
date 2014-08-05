@@ -1,0 +1,23 @@
+<br><br>
+<div class="container-fluid">
+<div class="row-fluid">
+
+
+
+	<div class="span6">
+	<div class="card"> 
+		<h2><%=@code%></h2>
+	</div>
+
+	
+
+	</div>
+		<%= link_to "Back" , learn_exercise_path(:id => session[:exercise_id],:code => session[:code]) , :class => "btn btn-primary" %>		
+	<div class="span6">
+			<h2><%= @myoutput%></h2>
+	
+	</div>
+</div>
+	             
+
+ </div>

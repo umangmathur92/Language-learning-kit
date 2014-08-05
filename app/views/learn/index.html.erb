@@ -1,0 +1,28 @@
+
+<br><br>
+<div class="container-fluid">
+	<div class="row">
+		<center>
+				<% @language.each do |lan| %>
+				
+				<div class="span3">
+					<div class="jumbotron1">
+							<center>
+								<h3><%= lan.name%></h3>
+								<hr />
+								<article><%= lan.details%></article>
+								<hr />		
+							
+								<%= link_to "Start",learn_tutorial_path( :language_id => lan.id ),:class => 'btn btn-info'%>
+								</center>		
+								  
+							</div>
+
+					</div>
+						<%end%>
+			
+			</center>
+	</div>
+
+
+</div>

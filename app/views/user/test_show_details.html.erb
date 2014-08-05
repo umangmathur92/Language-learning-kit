@@ -1,0 +1,75 @@
+  
+
+<% @q_no = 0 %> 
+<% @test_id %>
+<% @parentarray %>
+<% @pc %>
+
+
+
+<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<div class="span4" >
+				<div id='chart' style="position:fixed;">
+				  <%= render_chart @chart, 'chart' %>
+				</div>
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<div id='chart2' style="position:fixed;">
+				  <%= render_chart @chart2, 'chart2' %>
+				</div>
+
+	
+			</div>		
+			<br><br>
+				<div class="span8">
+						
+					<% @all_questions.each do |question| %>
+					<div class="row-fluid">
+						<div class="span2">
+							
+						</div>
+						<div class="span10">
+						
+
+								<% quest = Question.where(:id => question.questionid) %>
+
+								<div class="panel panel-default">
+										<div class="panel-heading" >
+												<p><h4>Question<%= @q_no= @q_no + 1 %> : <%= quest.first.name %></h4>
+										</div>
+										<div class="panel-body"> 			
+											<b>You Answered :<%= quest.first.correct_choice%>
+											<hr/>	
+											 <%if question.isright? %>Right</b>
+											<% else  %> 
+											Wrong
+											<hr/>	
+											Right Answer : <%= quest.first.correct_choice %>
+											<% end %>
+											</p>
+											
+										</div>
+
+								</div>
+
+						</div>
+							
+					</div>
+					<%end%>
+			
+				</div>
+		
+	</p>
+	</div>
+	</div>
+
+
+<script src='http://www.google.com/jsapi'></script>
+		
+		
+		
+		
+		
+		
+		

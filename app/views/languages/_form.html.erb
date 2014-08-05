@@ -1,0 +1,15 @@
+<%= simple_form_for @language, :html => { :class => 'form-horizontal' } do |f| %>
+  
+  <%= f.input :name %>
+  <%= f.input :details %>
+  <%= f.input :language_type , collection: ["Compiled","Interpreter"] %>
+  <%= f.input :compile_procedure %>
+  <%= f.input :execute_procedure %>
+  <%= f.input :file_extension %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                languages_path, :class => 'btn' %>
+  </div>
+<% end %>

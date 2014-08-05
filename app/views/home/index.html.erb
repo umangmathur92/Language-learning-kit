@@ -1,0 +1,83 @@
+
+
+<% if current_user.role == "Student" %>
+<div class="main">
+	<section class="page1">
+		<br><br><br>
+			<div class="container"> 
+				<h2>
+					<blockquote class="blockquote-reverse">Get what you want
+						<small>Learn basics</small>
+						</blockquote>
+				</h2>
+				<hr/>
+				<%= link_to "Start Tutorials",learn_index_path, {:class => "btn btn-medium btn-info pull-right"} %>				
+			</div>
+			<br><br><br>
+	</section>
+
+
+	<section class="page4">
+		<br><br><br>
+		<div class="container">
+
+		<h2><blockquote class="blockquote-reverse">
+			Test your Knowledge
+
+			<small>Give the test</small>
+		</blockquote></h2>
+					<hr/>
+				<%= link_to "Start Test",starttest_select_level_path, {:class => "btn btn-medium btn-info pull-right"} %>	
+			
+
+		</div>
+			
+			
+		<br><br><br>
+		</section>
+
+</div>
+
+
+
+
+
+
+
+<% elsif current_user.role = "Author" %>
+
+<div class="main">
+
+	<section class="page1">
+		<div class="container">
+		<br><br><br>
+		<h2><blockquote class="blockquote-reverse">
+			Teach the world
+			<small>Add your tutorials</small>
+		</blockquote></h2>
+		<hr/>
+			<%= link_to "Add a Tutorial",new_tutorial_path, {:class => "btn btn-large btn-info pull-right"} %>
+		</div>	
+	</section>
+	<section class="page2">
+		<div class="container">
+		<br><br><br>
+			<h2><blockquote class="blockquote-reverse">
+				Add your challange
+				<small>Add your questions</small>
+			</blockquote></h2>
+			<hr/>	
+			<%= link_to "Add a Question",new_question_path, {:class => "btn btn-large btn-info pull-right"} %>
+			<br>
+		</div>
+		
+	</section>
+</div>
+
+</div>	
+
+
+
+
+<% end %>
+

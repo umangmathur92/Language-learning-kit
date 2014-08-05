@@ -1,0 +1,36 @@
+<br><br>
+<div class="row-fluid">	
+	<div class="span4">
+		
+	</div>
+	<div class="span5">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+						<b>Sign in</b>
+				</div>
+				<div class="panel-body">
+					
+						<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => {:class => ""}) do |f| %>
+				     <%= f.input :email, :required => false, :autofocus => true %>
+				    <%= f.input :password, :required => false %>
+				    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+				
+
+					    <%= f.button :submit, "Sign in" %>
+					<% end %>
+	
+				</div>
+
+			</div>
+
+					
+
+				
+
+				<%= render "devise/shared/links" %>
+
+	</div>
+	
+	
+</div>

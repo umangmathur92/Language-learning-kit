@@ -1,0 +1,144 @@
+<% @exercises.each do |exercise| %>
+
+<div class="page-header"><h4><%= exercise.title%></h4></div>
+                
+<div class="container-fluid">
+
+    <div class="row-fluid">
+              
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Explanation</a></li>
+        <li ><a href="#tab2" data-toggle="tab">Video</a></li>
+      <%if exercise.video_url %>
+        <li><a href="#tab3" data-toggle="tab">Editor</a></li>           
+      <%end%> 
+     </ul>
+      
+     <div class="tab-content">
+           <div class="tab-pane active" id="tab1">
+                  
+                <ul class="nav nav-pills">
+                  <li class="active"><a href="#b1" data-toggle="tab">Information</a></li>
+                  <li><a href="#b2" data-toggle="tab">Instruction</a></li>
+                  <li><a href="#b3" data-toggle="tab">Hints</a></li>
+                </ul>
+                <div class="tab-content">
+                        <div class="tab-pane active" id="b1">
+                                   <label>Information</label>   
+                             <h2> <small><%= exercise.information %></small></h2>
+                        </div>
+                        <div class="tab-pane" id="b2">
+                             <label>Instructon</label>
+                       
+                              <h2><small><%= exercise.instruction %></small></h2>
+                        </div>
+                        <div class="tab-pane" id="b3">
+                               <label>Hint</label>
+                       
+                       <h2><small> <%= exercise.hint %> </small> </h2>
+
+                  
+                         </div>
+                     
+                </div>
+                         
+                         
+                         <% @ltp=exercise.tutorial.language.language_type %>
+                        <% @cmp=exercise.tutorial.language.compile_procedure %>
+                        <% @exc=exercise.tutorial.language.execute_procedure %>
+                        <% @fxt=exercise.tutorial.language.file_extension %>
+           
+           </div>
+            <div class="tab-pane" id="tab3">
+
+               <div class="container">
+                       
+                <div class="row"> 
+                    <div class="span8">
+                    <% @code_1 = params[:code] %>
+                           <label>Editor</label><textarea autofocus="autofucus" id="editor"><%= @code_1 %><%= exercise.default_code %>  </textarea> 
+
+  
+
+                           <%= form_tag({:controller=>"learn", :action=>"myfunc"}, method: :post) do %>
+
+                          <%= hidden_field_tag 'ltpp', @ltp %>
+                          <%= hidden_field_tag 'cmpp', @cmp %>
+                          <%= hidden_field_tag 'excc', @exc %>
+                          <%= hidden_field_tag 'fxtt', @fxt %>
+
+                          <hr />
+                            <a href="#button" data-toggle="modal" class="navbar-button btn-primary btn pull-left">Submit</a>
+
+    <div class="modal fade" id="button" role="dialog">
+     
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+            <p>Code</p>
+          </div>
+          <div class="modal-body">
+         <textarea id="tttt" name="inputofcode"><% @code %></textarea>
+          </div>
+          <div class="modal-footer">
+            <a id="button" class="btn btn-default btn">save</a>
+          <%= submit_tag 'Compile & Run', name: nil%>
+             
+          <a href="#" class="btn btn-primary btn" data-dismiss="modal">close</a>
+               
+          </div>
+      </div>
+    </div>
+  </div>
+
+                          
+                  <% end %>                      
+                </div> 
+                      
+                    </div>
+                    <div class="span4">
+                      
+                    </div>
+                </div>
+                            
+           </div>
+                   
+           <div class="tab-pane" id="tab2">
+                <div class="container">
+                 <div class="row">
+                     <div class="span6">
+                           <%= video_tag exercise.video_url.to_s,:width => 600, :controls => true%> 
+                    </div>
+                    </div>
+                 </div>                      
+           </div>           
+    </div>
+  </div>
+</div>
+                       
+ <%= javascript_tag do %>
+                                        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+                                          lineNumbers: true,
+                                          mode: "application/x-ejs",
+                                              indentUnit: 4,
+                                              indentWithTabs: true,
+                                              enterMode: "keep",
+                                              tabMode: "shift",
+                                            });
+
+                                            document.getElementById('button').onclick =function () {
+                                              document.getElementById('tttt').value = editor.getValue()
+                                               
+                                            // body...
+
+                                            };
+    <% end %> 
+
+
+<% id = exercise.id %>
+
+
+
+<%end%>
+ 

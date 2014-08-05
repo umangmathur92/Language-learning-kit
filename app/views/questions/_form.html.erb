@@ -1,0 +1,44 @@
+<br>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    <ul class="nav nav-tabs nav-stacked" style="position:fixed">
+    <li><a href="#">Add a Question</a></li>
+    <li><a href="#">Show Question Added by me</a></li>
+</ul>
+</div>
+    <div class="span9">
+    
+      <div class="jumbotron">
+
+    <p><h3 class="text-info">Add a Question</h3></p>
+    <hr />
+    
+<%= simple_form_for @question do |f| %>
+  <%= f.input :name, required: true, label: Question, :input_html => { class: 'span18',:rows => 4}  %>
+  <%= f.association :language, :input_html => { class: 'span4',:rows => 8}  %>
+  <%= f.input :user_id ,:as => "hidden",:input_html => {:value => current_user.id } %>
+  <hr>
+  
+  <%= f.input :difficulty_level ,collection: 1..10, :input_html => {class: 'span4'} %>
+<hr>
+
+    <%= f.simple_fields_for :option do |a| %>
+  <%= a.input :optionA , :input_html => { class: 'span18',:rows => 1} %>
+  <%= a.input :optionB , :input_html => { class: 'span18',:rows => 1} %>
+  <%= a.input :optionC , :input_html => { class: 'span18',:rows => 1} %>
+  <%= a.input :optionD , :input_html => { class: 'span18',:rows => 1} %>
+  <hr>
+  <% end %>
+<%= f.input :correct_choice, :input_html => { class: 'span18',:rows => 4} %>
+  </div>
+  <hr>
+  <%= f.button :submit , :class=> "btn btn-primary" %>
+<% end %>
+
+
+</div>
+
+</div>
+</div>
+</div>

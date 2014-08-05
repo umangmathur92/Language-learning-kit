@@ -1,0 +1,41 @@
+
+<h1>Listing questions</h1>
+
+  <h3> Questions By <%= current_user.first_name %> <%= current_user.last_name %> </h3>
+
+
+    <% @questions_by_author.each do |question| %>
+      <div class="row">
+      <div class="span-4"> </div>
+      <div class="span-5">
+       <h5><%= question.name %></h5>
+       
+       <ol>
+       <li><%= question.option.optionA %></li>
+       <li><%= question.option.optionB %></li>
+       <li><%= question.option.optionC %></li>
+       <li><%= question.option.optionD %></li>
+       </ol> 
+       <h5>Correct Choice :</h5> <%= question.correct_choice %><br>
+       <h5>Difficulty Level :</h5> <%= question.difficulty_level %>
+       
+<div class="form-actions">
+    <%= link_to 'Show', question, :class => "btn btn-info" %>
+    <%= link_to 'Edit', edit_question_path(question), :class => "btn btn-primary" %>
+    <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-danger" %>
+      
+  </div>     
+  </div>
+  </div>   
+    <% end %>
+  
+
+<br>
+<div class="form-actions">
+<%= link_to 'New Question', new_question_path, :class => "btn btn-info" %>
+</div>
+<% @data = ["Akash","Shinde"] %>
+
+
+
+

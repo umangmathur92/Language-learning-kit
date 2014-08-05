@@ -1,0 +1,27 @@
+<h1>Listing addimages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addimages.each do |addimage| %>
+      <tr>
+        <td><%= addimage.url %></td>
+        <td><%= link_to 'Show', addimage %></td>
+        <td><%= link_to 'Edit', edit_addimage_path(addimage) %></td>
+        <td><%= link_to 'Destroy', addimage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Addimage', new_addimage_path %>

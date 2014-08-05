@@ -1,0 +1,17 @@
+
+<div class="container">
+	<div class="row">
+		<div class="span6">
+			<h3>You scored <b><%= @total_marks %></b> marks in test</h3>
+			<% if @total_marks > 10 %>
+				
+			<%end%>
+		</div>
+		<div class="span6">
+
+			<%=link_to "show Answers",user_test_show_details_path(:test_id => session[:testid]),:class => 'btn btn-primary'%>			
+			
+		</div>
+	</div>
+</div>
+

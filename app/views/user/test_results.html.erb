@@ -1,0 +1,31 @@
+<br><br>
+<h5>Tests given by <%= current_user.first_name %> <%= current_user.last_name %> </h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Marks </th>
+      <th>Created At</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @test_given_by_user.each do |question| %>
+      <tr>
+        <td><b><%= link_to question.id, user_test_show_details_path(:test_id => question.id) %></b></td>
+        <td><b><i><%= question.marks %></i><b></td>
+        <td><%= question.created_at %></td>
+        
+        <td>
+          <%= link_to 'Show Test',
+                      user_test_show_details_path(question), :class => 'btn btn-mini' %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_question_path,
+            :class => 'btn btn-primary' %>

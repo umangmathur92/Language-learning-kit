@@ -1,0 +1,45 @@
+
+<br><br>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+   
+    <div class="span9">
+     
+			<% @accept = Accept.new %>
+			<% @que = @question_full %>
+			<%= simple_form_for @accept, :url => "#" ,:method => 'post' do |f|%>
+
+			<div class="panel panel-default">
+			<div class="panel-heading"><b><%= @que.first.name %></b></div>
+				<div class="panel-body">
+						<% @queid = @que.first.id %>
+						<%= f.input :questionid,:as => "hidden",:input_html => {:value => @queid } %>
+
+						<%= f.collection_radio_buttons :option_retrieved, [[@que.first.option.optionA, @que.first.option.optionA],[@que.first.option.optionA,@que.first.option.optionA],[@que.first.option.optionC,@que.first.option.optionC],[@que.first.option.optionD,@que.first.option.optionD]], :first, :last %>
+
+				</div>
+		</div>
+
+		<%= link_to 'Back' , :back %>
+
+			<% end %>
+    </div>
+    <div class="span3">
+					    	<ul class="list-group">
+						<li class="list-group-item">
+						Marks
+							<span class="badge"><%= session[:mark] %></span>
+
+						</li>
+						<li class="list-group-item">
+							Question NO.
+							<span class="badge"><%= session[:question_no] %></span>
+
+						</li>
+
+					</ul>
+
+    </div>
+  </div>
+</div>
